@@ -15,14 +15,5 @@
     "nunjucks": "^3.1.3",
     "pg": "^7.4.3"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/viveksainanee/lunchly.git"
-  },
-  "keywords": [],
-  "bugs": {
-    "url": "https://github.com/viveksainanee/lunchly/issues"
-  },
-  "homepage": "https://github.com/viveksainanee/lunchly#readme",
   "description": ""
 }
