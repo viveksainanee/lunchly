@@ -17,6 +17,16 @@ class Reservation {
     this.notes = notes;
   }
 
+  /**  set and get for reservation num Guests**/
+  get numGuests() {
+    return this._numGuests;
+  }
+
+  set numGuests(val) {
+    if (val >= 1) this._numGuests = val;
+    else throw new Error('Need more guests.');
+  }
+
   /** methods for setting/getting startAt time */
 
   set startAt(val) {

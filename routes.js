@@ -9,8 +9,14 @@ router = express.Router();
 
 router.get('/', async (req, res) => {
   const customers = await Customer.all();
-  console.log(customers);
   res.render('customer_list.html', { customers });
+});
+
+/** Search list of customers from the query . */
+
+router.get('/search/', async (req, res) => {
+  const customers = await Customer.all();
+  res.render('search.html', { customers });
 });
 
 /** Form to add a new customer. */
@@ -88,8 +94,8 @@ router.post('/:customerId/add-reservation/', async (req, res) => {
   const customerId = req.params.customerId;
   const startAt = new Date(req.body.startAt);
   const numGuests = req.body.numGuests;
+
   const notes = req.body.notes;
-  console.log(req.body.customer_id);
 
   try {
     const reservation = new Reservation({
