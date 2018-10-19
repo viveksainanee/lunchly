@@ -129,6 +129,23 @@ class Customer {
     this.notes = notes;
   }
 
+  /** Search for user */
+  static async searchUsers(searchQuery) {
+    const results = await db.query(
+      `SELECT first_name AS "firstName",  
+      last_name AS "lastName"
+      FROM customers
+      WHERE first_name ILIKE $1
+      OR last_name ILIKE $1
+      ORDER BY last_name, first_name;`,
+      ['%' + searchQuery + '%']
+    );
+
+    // OR last_name LIKE '%$1%'
+
+    return results.rows.map(c => new Customer(c));
+  }
+
   /** Full name gets the full name of the customer (first and last with a space) **/
   get fullName() {
     return `${this.firstName} ${this.lastName}`;

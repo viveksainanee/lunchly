@@ -15,7 +15,10 @@ router.get('/', async (req, res) => {
 /** Search list of customers from the query . */
 
 router.get('/search/', async (req, res) => {
-  const customers = await Customer.all();
+  const searchQuery = req.query.search;
+  // console.log(searchQuery);
+  const customers = await Customer.searchUsers(searchQuery);
+  // const customers = await Customer.all();
   res.render('search.html', { customers });
 });
 

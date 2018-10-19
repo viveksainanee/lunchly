@@ -1,6 +1,6 @@
 /** Start server for Lunchly. */
 
-const app = require("./app");
+const app = require('./app');
 
 const PORT = 3000;
 
